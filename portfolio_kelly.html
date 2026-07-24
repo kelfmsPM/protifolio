@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kelly Figueiredo — Portfólio de Produto</title>
+<style>
+  :root {
+    --bg: #F3F4F1;
+    --surface: #FBFBF9;
+    --surface-raised: #FFFFFF;
+    --ink: #16231E;
+    --ink-soft: #4E5D57;
+    --ink-faint: #7C8985;
+    --accent: #0E6E52;
+    --accent-ink: #FFFFFF;
+    --accent-soft: #DCEEE6;
+    --accent-soft-ink: #0E4A38;
+    --line: #DCDED7;
+    --line-strong: #C4C9BF;
+    --shadow: 0 1px 2px rgba(20, 30, 25, 0.04), 0 8px 24px rgba(20, 30, 25, 0.05);
+    --warn-soft: #F4E8CF;
+    --warn-soft-ink: #6B4C00;
+
+    --font-display: Georgia, "Iowan Old Style", "Palatino Linotype", "Book Antiqua", serif;
+    --font-body: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-mono: ui-monospace, "SF Mono", "Cascadia Code", "Roboto Mono", Consolas, monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #111815;
+      --surface: #161F1B;
+      --surface-raised: #1B2620;
+      --ink: #E9EEEA;
+      --ink-soft: #AEBAB3;
+      --ink-faint: #7E8B84;
+      --accent: #45C79D;
+      --accent-ink: #08201A;
+      --accent-soft: #1D3A31;
+      --accent-soft-ink: #A9E8D2;
+      --line: #2A3630;
+      --line-strong: #3B4A42;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 12px 28px rgba(0, 0, 0, 0.35);
+      --warn-soft: #3A2F16;
+      --warn-soft-ink: #F0D9A0;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #111815;
+    --surface: #161F1B;
+    --surface-raised: #1B2620;
+    --ink: #E9EEEA;
+    --ink-soft: #AEBAB3;
+    --ink-faint: #7E8B84;
+    --accent: #45C79D;
+    --accent-ink: #08201A;
+    --accent-soft: #1D3A31;
+    --accent-soft-ink: #A9E8D2;
+    --line: #2A3630;
+    --line-strong: #3B4A42;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 12px 28px rgba(0, 0, 0, 0.35);
+    --warn-soft: #3A2F16;
+    --warn-soft-ink: #F0D9A0;
+  }
+  :root[data-theme="light"] {
+    --bg: #F3F4F1;
+    --surface: #FBFBF9;
+    --surface-raised: #FFFFFF;
+    --ink: #16231E;
+    --ink-soft: #4E5D57;
+    --ink-faint: #7C8985;
+    --accent: #0E6E52;
+    --accent-ink: #FFFFFF;
+    --accent-soft: #DCEEE6;
+    --accent-soft-ink: #0E4A38;
+    --line: #DCDED7;
+    --line-strong: #C4C9BF;
+    --shadow: 0 1px 2px rgba(20, 30, 25, 0.04), 0 8px 24px rgba(20, 30, 25, 0.05);
+    --warn-soft: #F4E8CF;
+    --warn-soft-ink: #6B4C00;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-body);
+    line-height: 1.55;
+    font-size: 16px;
+  }
+  a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  .wrap { max-width: 980px; margin: 0 auto; padding: 0 24px; }
+
+  /* ── Header / hero ─────────────────────────────────────────── */
+  header.hero {
+    padding: 72px 0 48px;
+    border-bottom: 1px solid var(--line);
+  }
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--accent-soft-ink);
+    background: var(--accent-soft);
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 3px;
+    margin-bottom: 22px;
+  }
+  h1.name {
+    font-family: var(--font-display);
+    font-size: clamp(2.1rem, 4.5vw, 3.1rem);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    margin: 0 0 10px;
+    text-wrap: balance;
+  }
+  p.role {
+    font-size: 1.15rem;
+    color: var(--ink-soft);
+    margin: 0 0 28px;
+    max-width: 640px;
+    text-wrap: balance;
+  }
+  p.role strong { color: var(--ink); font-weight: 600; }
+
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 8px;
+  }
+  .stat {
+    background: var(--surface);
+    padding: 18px 20px;
+  }
+  .stat .n {
+    font-family: var(--font-mono);
+    font-size: 1.7rem;
+    font-variant-numeric: tabular-nums;
+    color: var(--accent);
+    display: block;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .stat .l {
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+  }
+
+  .contact-note {
+    margin-top: 22px;
+    font-size: 0.85rem;
+    color: var(--ink-faint);
+    font-style: italic;
+  }
+
+  /* ── Section scaffolding ────────────────────────────────────── */
+  section.group { padding: 56px 0 12px; }
+  .group-head {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+  }
+  h2.group-title {
+    font-family: var(--font-display);
+    font-size: 1.65rem;
+    font-weight: 400;
+    margin: 0;
+  }
+  p.group-sub {
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+    margin: 0 0 32px;
+    max-width: 620px;
+  }
+
+  article.project {
+    display: grid;
+    grid-template-columns: 210px 1fr;
+    gap: 28px;
+    padding: 30px 0;
+    border-top: 1px solid var(--line);
+  }
+  article.project:last-child { padding-bottom: 30px; }
+
+  .project-meta { position: relative; }
+  h3.project-title {
+    font-size: 1.12rem;
+    font-weight: 700;
+    margin: 0 0 10px;
+    letter-spacing: -0.005em;
+  }
+  .status-pill {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.02em;
+    padding: 3px 9px;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+  .status-pill.discovery { background: var(--warn-soft); color: var(--warn-soft-ink); }
+  .status-pill.shipped { background: var(--accent-soft); color: var(--accent-soft-ink); }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.02em;
+    color: var(--ink-soft);
+    background: var(--surface);
+    border: 1px solid var(--line-strong);
+    padding: 3px 8px;
+    border-radius: 3px;
+    white-space: nowrap;
+  }
+
+  .project-body p { margin: 0 0 12px; max-width: 62ch; }
+  .project-body p:last-child { margin-bottom: 0; }
+  .project-body .k {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-right: 8px;
+  }
+  .project-body .result {
+    background: var(--surface);
+    border-left: 2px solid var(--accent);
+    padding: 10px 14px;
+    border-radius: 0 6px 6px 0;
+    margin-top: 14px;
+  }
+
+  @media (max-width: 680px) {
+    article.project { grid-template-columns: 1fr; gap: 12px; }
+    header.hero { padding: 52px 0 36px; }
+  }
+
+  .timeline { border-top: 1px solid var(--line); }
+  .role-entry {
+    padding: 22px 0;
+    border-bottom: 1px solid var(--line);
+    display: grid;
+    grid-template-columns: 210px 1fr;
+    gap: 28px;
+  }
+  .role-entry .role-meta h3 {
+    font-size: 1.02rem;
+    margin: 0 0 4px;
+  }
+  .role-entry .role-meta .dates {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--ink-faint);
+  }
+  .role-entry p { margin: 0; max-width: 62ch; color: var(--ink-soft); font-size: 0.95rem; }
+  .role-entry.break .role-meta h3 { color: var(--ink-soft); font-weight: 600; font-style: italic; }
+  .role-entry.break p { font-style: italic; }
+
+  @media (max-width: 680px) {
+    .role-entry { grid-template-columns: 1fr; gap: 6px; }
+  }
+
+  footer {
+    margin-top: 40px;
+    padding: 36px 0 56px;
+    border-top: 1px solid var(--line);
+    color: var(--ink-faint);
+    font-size: 0.85rem;
+  }
+  footer a { color: var(--ink-soft); }
+
+  .career-strip { padding: 30px 0 0; }
+  .career-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 22px;
+    display: block;
+  }
+  .career-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+  }
+  .career-line::before {
+    content: "";
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    right: 4px;
+    height: 1px;
+    background: var(--line-strong);
+  }
+  .career-node {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 88px;
+    flex: 1;
+  }
+  .career-node .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    margin-bottom: 12px;
+    z-index: 1;
+  }
+  .career-node.current .dot { box-shadow: 0 0 0 3px var(--accent-soft); }
+  .career-node .cl-company {
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .career-node .cl-dates {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--ink-faint);
+    margin-top: 3px;
+  }
+  @media (max-width: 680px) {
+    .career-line { justify-content: flex-start; }
+  }
+
+  .skills-group { padding-bottom: 56px; }
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px 32px;
+    border-top: 1px solid var(--line);
+    padding-top: 28px;
+  }
+  .skill-label {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 10px;
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow">Product Management · E-commerce &amp; Marketplaces</span>
+    <h1 class="name">Kelly Figueiredo M. Silva</h1>
+    <p class="role">
+      "Eu facilito entregas de valor conectando objetivos de negócio com decisões técnicas."
+      <strong>Product Manager</strong> especialista em e-commerce e marketplaces — lançamento de
+      plataformas digitais, otimização de conversão e experiência do cliente. Trabalho na fronteira
+      entre descoberta de produto, regras de negócio e engenharia de processo, transformando
+      discoveries em decisões documentadas e processos manuais em sistemas que rodam sozinhos.
+    </p>
+    <div class="stats">
+      <div class="stat"><span class="n">08</span><span class="l">produtos e discoveries documentados</span></div>
+      <div class="stat"><span class="n">09</span><span class="l">automações de board mantidas</span></div>
+      <div class="stat"><span class="n">02</span><span class="l">dashboards de métricas em produção</span></div>
+    </div>
+    <p class="contact-note">Belo Horizonte, MG · (31) 98325-5151 · kelfms@hotmail.com · <a href="https://www.linkedin.com/in/kellyfigueiredo-pm/">LinkedIn</a></p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="career-strip">
+    <span class="career-label">Trajetória</span>
+    <div class="career-line">
+      <div class="career-node">
+        <span class="dot"></span>
+        <span class="cl-company">Bagy</span>
+        <span class="cl-dates">2020–22</span>
+      </div>
+      <div class="career-node">
+        <span class="dot"></span>
+        <span class="cl-company">Inmetrics</span>
+        <span class="cl-dates">2022–23</span>
+      </div>
+      <div class="career-node">
+        <span class="dot"></span>
+        <span class="cl-company">AutoForce</span>
+        <span class="cl-dates">2023–24</span>
+      </div>
+      <div class="career-node">
+        <span class="dot"></span>
+        <span class="cl-company">Rubcube</span>
+        <span class="cl-dates">2024</span>
+      </div>
+      <div class="career-node current">
+        <span class="dot"></span>
+        <span class="cl-company">Bestfy</span>
+        <span class="cl-dates">2026–atual</span>
+      </div>
+    </div>
+  </div>
+
+  <section class="group" style="padding-top: 8px;">
+    <div class="group-head">
+      <h2 class="group-title">Discovery de Produto</h2>
+    </div>
+    <p class="group-sub">
+      Da ambiguidade inicial ao escopo documentado — pesquisa de mercado, regras de negócio e
+      decisões de arquitetura de produto, sempre com o trade-off explícito registrado.
+    </p>
+
+    <article class="project">
+      <div class="project-meta">
+        <span class="status-pill discovery">Discovery em andamento</span>
+        <h3 class="project-title">Personalização do Checkout</h3>
+        <div class="tags">
+          <span class="tag">product discovery</span>
+          <span class="tag">market research</span>
+          <span class="tag">lean inception</span>
+        </div>
+      </div>
+      <div class="project-body">
+        <p><span class="k">Problema</span>Taxa de conversão do checkout limitada pela falta de personalização — o lojista não tinha controle sobre banner, cor de texto, cronômetro de urgência ou prova social para adaptar a experiência de compra ao seu público.</p>
+        <p><span class="k">Processo</span>Conduzi o discovery em nível de épico — sem fatiar em User Stories antes de validar o escopo. Pesquisei três modelos de mercado distintos de cadastro de prova social (Yampi, Kiwify/Hotmart, Fera/Loox), sinalizei o risco jurídico de um cronômetro reiniciável por visitante, e defini que selos de confiança (SSL, PCI, LGPD) deveriam ser nativos da plataforma — não configuráveis pelo lojista.</p>
+        <div class="result"><span class="k">Impacto</span>Evitou que o time começasse a construir em cima de um requisito juridicamente arriscado (cronômetro) ou um modelo de dados errado de prova social — escopo, riscos e dependências ficaram delimitados antes de qualquer linha de código.</div>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="project-meta">
+        <span class="status-pill discovery">Discovery em andamento</span>
+        <h3 class="project-title">Integração com WooCommerce</h3>
+        <div class="tags">
+          <span class="tag">technical discovery</span>
+          <span class="tag">api integration</span>
+        </div>
+      </div>
+      <div class="project-body">
+        <p><span class="k">Problema</span>A plataforma só integrava com Shopify — lojas WooCommerce ficavam de fora da sincronização de produtos e do checkout embutido, limitando o alcance de mercado.</p>
+        <p><span class="k">Processo</span>Mapeei o mesmo padrão de autenticação por chave já usado no Shopify, e identifiquei que a troca de checkout no Shopify depende de injetar código no tema da loja — um mecanismo frágil — enquanto o WooCommerce tem um ponto de extensão nativo (gateway de pagamento customizado) que tornaria a integração mais robusta de manter.</p>
+        <div class="result"><span class="k">Impacto</span>Evitou que o time replicasse por padrão a abordagem frágil do Shopify no WooCommerce — a arquitetura recomendada é estruturalmente mais fácil de manter, com base de esforço já estimada para priorização.</div>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="project-meta">
+        <span class="status-pill discovery">Discovery em andamento</span>
+        <h3 class="project-title">Integração com Reportana</h3>
+        <div class="tags">
+          <span class="tag">build vs. buy</span>
+          <span class="tag">financial analysis</span>
+        </div>
+      </div>
+      <div class="project-body">
+        <p><span class="k">Problema</span>Sem estratégia de recuperação de carrinho abandonado, a plataforma corria risco competitivo — e a demanda inicial (construir WhatsApp/e-mail nativamente) veio sem análise de viabilidade.</p>
+        <p><span class="k">Processo</span>Levantei o custo real da API do WhatsApp Business por mensagem e confrontei com o modelo de receita da plataforma (sem assinatura recorrente) — o que mudou a decisão inicial. Mapeei os quatro momentos de abandono do funil para os endpoints corretos de uma API parceira, e identifiquei que o Pix expira em 30 minutos, uma restrição que exige dois gatilhos de automação, não um só.</p>
+        <div class="result"><span class="k">Impacto</span>Evitou uma decisão de construir WhatsApp/SMS nativamente, que geraria custo variável crescente sem contrapartida de receita — recomendação de arquitetura híbrida sustentada por número, não achismo.</div>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="project-meta">
+        <span class="status-pill shipped">Em produção</span>
+        <h3 class="project-title">Regras de Negócio: Order Bump</h3>
+        <div class="tags">
+          <span class="tag">business rules</span>
+          <span class="tag">competitive analysis</span>
+        </div>
+      </div>
+      <div class="project-body">
+        <p><span class="k">Problema</span>A feature de upsell no checkout não tinha nenhuma regra de negócio documentada — decisões de comportamento (limite de itens, prioridade, exclusão) estavam sendo tomadas caso a caso.</p>
+        <p><span class="k">Processo</span>Defini seis regras de negócio (limite de itens ativos, soft delete, prioridade por posição, revalidação na finalização) e pesquisei como quatro concorrentes resolvem o parcelamento do bump em relação ao produto principal — encontrando dois padrões de mercado opostos (independente vs. herdado).</p>
+        <div class="result"><span class="k">Impacto</span>Fonte única de verdade da feature em produção, evitando comportamento inconsistente entre desenvolvimento, suporte e qualquer evolução futura.</div>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="project-meta">
+        <span class="status-pill shipped">Em produção</span>
+        <h3 class="project-title">Intercom como Helpdesk</h3>
+        <div class="tags">
+          <span class="tag">vendor evaluation</span>
+          <span class="tag">customer support</span>
+        </div>
+      </div>
+      <div class="project-body">
+        <p><span class="k">Problema</span>Não havia decisão definida de ferramenta de atendimento aos lojistas, e a conta de chat já existente na empresa era compartilhada com outras aplicações — sem clareza se dava para reaproveitar.</p>
+        <p><span class="k">Processo</span>Mapeei o modelo de dados do Intercom, a stack técnica necessária e o plano comercial recomendado. Ao testar na prática, identifiquei uma limitação que não estava em nenhuma documentação: um app isolado no mesmo workspace não segrega as conversas — exigindo uma estratégia diferente (tipos de ticket + time dedicado) para separar o atendimento de verdade.</p>
+        <div class="result"><span class="k">Impacto</span>Evitou uma decisão de arquitetura que não resolveria o problema real de segregação — a limitação só apareceu testando na prática, antes de virar retrabalho pós-implementação.</div>
+      </div>
+    </article>
+  </section>
+
+  <section class="group">
+    <div class="group-head">
+      <h2 class="group-title">Automação &amp; Engenharia de Processo</h2>
+    </div>
+    <p class="group-sub">
+      Processos manuais e repetitivos reconstruídos como sistemas — com atenção a onde eles podem
+      quebrar silenciosamente, não só a onde funcionam.
+    </p>
+
+    <article class="project">
+      <div class="project-meta">
+        <span class="status-pill shipped">Em produção</span>
+        <h3 class="project-title">Changelog de Release Automatizado</h3>
+        <div class="tags">
+          <span class="tag">github actions</span>
+          <span class="tag">graphql</span>
+          <span class="tag">notion api</span>
+        </div>
+      </div>
+      <div class="project-body">
+        <p><span class="k">Problema</span>Cada release exigia que alguém revisasse manualmente os cards entregues e escrevesse o changelog à mão — tarefa repetitiva e sujeita a esquecimento de itens.</p>
+        <p><span class="k">Processo</span>Desenhei um pipeline completo: uma GitHub Action dispara ao fechar a milestone, consulta a API GraphQL do GitHub (issues "mãe" e sub-issues entre repositórios), agrupa por tipo de tarefa, e publica um changelog formatado — com toggles, cores e emojis por categoria — direto numa página do Notion, sempre com a versão mais recente no topo do histórico.</p>
+        <div class="result"><span class="k">Impacto</span>Eliminou a tarefa manual de escrita de changelog a cada release e removeu o risco de esquecer cards na lista — o processo passou a ser determinístico, sem depender de alguém lembrar de reunir tudo. Serviu de base para uma segunda automação (mover em lote os cards de uma milestone para "Done").</div>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="project-meta">
+        <span class="status-pill shipped">Em produção</span>
+        <h3 class="project-title">Automações do Board (Projects v2)</h3>
+        <div class="tags">
+          <span class="tag">workflow design</span>
+          <span class="tag">systems thinking</span>
+        </div>
+      </div>
+      <div class="project-body">
+        <p><span class="k">Problema</span>O board de desenvolvimento dependia de passos manuais e repetitivos — atribuir milestone, mover status quando o código avançava, avisar sobre PRs, arquivar cards antigos — cada um sujeito a alguém esquecer de fazer.</p>
+        <p><span class="k">Processo</span>Arquitetei um conjunto de automações que se protegem mutuamente contra estados inconsistentes — por exemplo, duas automações que sincronizam status entre issue "mãe" e sub-issues nas duas direções, com regras de prioridade explícitas para nunca "puxar para trás" um card que já avançou.</p>
+        <div class="result"><span class="k">Impacto</span>Reduziu a dependência de disciplina manual do time para manter o board atualizado. Quando um caso real de cards travados apareceu (0 de 50 subtasks atualizadas), a causa foi identificada e corrigida sistematicamente, não card por card.</div>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="project-meta">
+        <span class="status-pill shipped">Em produção</span>
+        <h3 class="project-title">Auditoria Pós-Renomeação de Repo</h3>
+        <div class="tags">
+          <span class="tag">debugging</span>
+          <span class="tag">root-cause analysis</span>
+        </div>
+      </div>
+      <div class="project-body">
+        <p><span class="k">Problema</span>Um repositório do board foi renomeado, e várias automações passaram a falhar silenciosamente — sem erro visível, só sem efeito.</p>
+        <p><span class="k">Processo</span>Revisei sistematicamente cada automação em busca de comparações de texto contra o nome antigo do repositório — uma classe de bug que nunca gera erro, só zero resultados — encontrando sete das nove automações afetadas, incluindo uma checagem de segurança que nunca mais passava.</p>
+        <div class="result"><span class="k">Impacto</span>Restaurou o funcionamento de sete automações que estavam silenciosamente inativas — sem essa auditoria, o time continuaria confiando em processos que já não estavam mais rodando.</div>
+      </div>
+    </article>
+  </section>
+
+  <section class="group">
+    <div class="group-head">
+      <h2 class="group-title">Dashboards &amp; Métricas</h2>
+    </div>
+    <p class="group-sub">
+      Dados que viviam espalhados, sem tendência nem alerta, viraram painéis vivos com leitura
+      de causa e efeito.
+    </p>
+
+    <article class="project">
+      <div class="project-meta">
+        <span class="status-pill shipped">Em produção</span>
+        <h3 class="project-title">Dashboard de Saúde da Plataforma</h3>
+        <div class="tags">
+          <span class="tag">data visualization</span>
+          <span class="tag">github pages</span>
+        </div>
+      </div>
+      <div class="project-body">
+        <p><span class="k">Problema</span>Métricas de cadastro, engajamento e crescimento viviam espalhadas, sem um lugar único e visual para acompanhar a evolução.</p>
+        <p><span class="k">Processo</span>Construí um painel visual com formulário próprio de input semanal e exportação/importação de backup — decisão tomada depois de entender que eu era a única responsável por registrar esses dados, sem duplicidade com nenhuma outra fonte.</p>
+        <div class="result"><span class="k">Impacto</span>Criou o único registro histórico confiável dessas métricas, atualizado semanalmente — a fonte de verdade que não existia antes.</div>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="project-meta">
+        <span class="status-pill shipped">Em produção</span>
+        <h3 class="project-title">Métricas de Time (ponta a ponta)</h3>
+        <div class="tags">
+          <span class="tag">data pipeline</span>
+          <span class="tag">apps script</span>
+          <span class="tag">notion api</span>
+        </div>
+      </div>
+      <div class="project-body">
+        <p><span class="k">Problema</span>Métricas de entrega do time (por tipo de tarefa e por semana, tempo de ciclo por etapa) viviam numa planilha manual, sem visão de tendência nem alerta de gargalo — e um bug de escopo fazia um tipo inteiro de entrega ficar invisível nos números.</p>
+        <p><span class="k">Processo</span>Corrigi o bug de escopo e reestruturei o pipeline de dados — Apps Script consultando a API GraphQL do GitHub — e depois estendi o sistema para publicar automaticamente um dashboard no Notion, com comparação mês a mês, gráficos gerados dinamicamente e identificação automática da etapa do fluxo onde os cards mais demoram.</p>
+        <div class="result"><span class="k">Impacto</span>Dados que antes ficavam parcialmente errados (por causa do bug) e estáticos viraram um painel correto e vivo, com leitura automática da correlação entre volume entregue e tempo de ciclo — sem intervenção manual após a configuração inicial.</div>
+      </div>
+    </article>
+  </section>
+
+  <section class="group">
+    <div class="group-head">
+      <h2 class="group-title">Produtos Lançados — Bagy (2020–2022)</h2>
+    </div>
+    <p class="group-sub">
+      Três produtos conduzidos do zero ao lançamento, como Product Manager/Owner responsável
+      pela visão, priorização e execução ponta a ponta.
+    </p>
+
+    <article class="project">
+      <div class="project-meta">
+        <span class="status-pill shipped">Lançado</span>
+        <h3 class="project-title">BagyShop — Marketplace</h3>
+        <div class="tags">
+          <span class="tag">0 to 1</span>
+          <span class="tag">marketplace</span>
+          <span class="tag">google analytics</span>
+        </div>
+      </div>
+      <div class="project-body">
+        <p><span class="k">Problema</span>A empresa não tinha um marketplace próprio para unir lojas parceiras num único canal — faltava estrutura de dados e critério de elegibilidade para viabilizar isso.</p>
+        <p><span class="k">Processo</span>Liderei da concepção ao lançamento: defini os critérios de elegibilidade das lojas participantes, colaborei com o líder técnico e o especialista de banco de dados na criação de views, crons e tabelas que sustentaram a estrutura do marketplace, validei as telas e conduzi um lançamento inicial restrito a um grupo seleto de lojistas.</p>
+        <div class="result"><span class="k">Impacto</span>Lançamento superou as expectativas iniciais; o rastreamento via Google Analytics permitiu medir a origem das vendas e o impacto direto na performance das lojas — o projeto virou padrão de referência para as iniciativas de e-commerce seguintes da empresa.</div>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="project-meta">
+        <span class="status-pill shipped">Lançado</span>
+        <h3 class="project-title">BagyPay — Meio de Pagamento Próprio</h3>
+        <div class="tags">
+          <span class="tag">payments</span>
+          <span class="tag">white-label api</span>
+          <span class="tag">vendor management</span>
+        </div>
+      </div>
+      <div class="project-body">
+        <p><span class="k">Problema</span>Clientes e lojistas precisavam de mais flexibilidade de pagamento do que os métodos existentes ofereciam — faltava um meio de pagamento próprio, integrado à plataforma.</p>
+        <p><span class="k">Processo</span>Liderei da concepção à evolução contínua, alinhando com o parceiro de pagamentos (Vindi) e as áreas internas (Marketing, CS, Suporte, Aquisição). Usei APIs white-label, liberando funcionalidades em fases com testes rigorosos, e criei dashboards de acompanhamento de volume por boleto, cartão e Pix — depois evoluindo o produto com integração ao app e desconto automático via Pix.</p>
+        <div class="result"><span class="k">Impacto</span>Aumentou a eficiência e a flexibilidade de pagamento para lojistas e clientes, com melhorias iterativas contínuas — tornou-se referência de inovação e cooperação estratégica dentro da empresa.</div>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="project-meta">
+        <span class="status-pill shipped">Lançado</span>
+        <h3 class="project-title">App Atacadão — E-commerce Mobile</h3>
+        <div class="tags">
+          <span class="tag">mobile</span>
+          <span class="tag">0 to 1</span>
+          <span class="tag">kanban</span>
+        </div>
+      </div>
+      <div class="project-body">
+        <p><span class="k">Problema</span>Construir um app de e-commerce do zero — sem nenhuma funcionalidade implementada — com cronograma apertado e alta expectativa do cliente.</p>
+        <p><span class="k">Processo</span>Atuei como Product Owner estruturando o backlog do zero: implementei Kanban no Jira, padronizei branches para colaboração eficiente, e priorizei as funcionalidades essenciais — onboarding com busca por CEP, cadastro/edição de perfil, busca com filtros, carrinho, aviso de indisponibilidade e checkout com cartão de crédito.</p>
+        <div class="result"><span class="k">Impacto</span>Entrega dentro do prazo com todas as funcionalidades essenciais, lançamento completo para iOS e beta Android, com monitoramento de eventos que já embasou as melhorias subsequentes.</div>
+      </div>
+    </article>
+  </section>
+
+  <section class="group skills-group">
+    <div class="group-head">
+      <h2 class="group-title">Ferramentas &amp; Habilidades</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-block">
+        <span class="skill-label">Gestão de Produto</span>
+        <div class="tags">
+          <span class="tag">discovery</span>
+          <span class="tag">roadmapping</span>
+          <span class="tag">priorização de backlog</span>
+          <span class="tag">okrs</span>
+          <span class="tag">gestão de stakeholders</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <span class="skill-label">Agilidade</span>
+        <div class="tags">
+          <span class="tag">scrum</span>
+          <span class="tag">kanban</span>
+          <span class="tag">lean inception</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <span class="skill-label">Métricas &amp; Análise</span>
+        <div class="tags">
+          <span class="tag">kpis</span>
+          <span class="tag">lead time</span>
+          <span class="tag">burndown</span>
+          <span class="tag">google analytics</span>
+          <span class="tag">metabase</span>
+          <span class="tag">sql</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <span class="skill-label">Ferramentas</span>
+        <div class="tags">
+          <span class="tag">jira</span>
+          <span class="tag">trello</span>
+          <span class="tag">confluence</span>
+          <span class="tag">notion</span>
+          <span class="tag">miro</span>
+          <span class="tag">figma</span>
+          <span class="tag">slack</span>
+          <span class="tag">github</span>
+          <span class="tag">claude</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    Kelly Figueiredo M. Silva — Product Management · atualizado em julho de 2026
+  </div>
+</footer>
+
+</body>
+</html>
