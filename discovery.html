@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Discovery de Produto — Kelly Figueiredo</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="sitenav">
+  <div class="wrap navwrap">
+    <a href="index.html" class="navlogo">Kelly Figueiredo</a>
+    <div class="navlinks">
+      <a href="index.html">Home</a>
+      <a href="produtos.html">Produtos</a>
+      <a href="automacao.html">Automação</a>
+      <a href="discovery.html" class="active">Discovery</a>
+    </div>
+  </div>
+</nav>
+
+<header class="pagehead">
+  <div class="wrap">
+    <h1>Discovery de Produto</h1>
+    <p>Da ambiguidade inicial ao escopo documentado — pesquisa de mercado, regras de negócio e
+      decisões de arquitetura de produto, sempre com o trade-off explícito registrado.</p>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="group" style="padding-top: 8px;">
+    <article class="project">
+      <div class="project-meta">
+        <span class="status-pill discovery">Discovery em andamento</span>
+        <h3 class="project-title">Personalização do Checkout</h3>
+        <div class="tags">
+          <span class="tag">product discovery</span>
+          <span class="tag">market research</span>
+          <span class="tag">lean inception</span>
+        </div>
+      </div>
+      <div class="project-body">
+        <p><span class="k">Problema</span>Checkout sem controle de banner, cor, cronômetro ou prova social para adaptar a experiência de compra ao público do lojista.</p>
+        <p><span class="k">Processo</span>Discovery em nível de épico, sem fatiar em US antes de validar escopo — 3 modelos de mercado de prova social comparados (Yampi, Kiwify/Hotmart, Fera/Loox).</p>
+        <div class="result"><span class="k">Resultado</span><strong>1 risco jurídico barrado</strong> antes de virar código (cronômetro reiniciável por visitante) · <strong>3 modelos de mercado</strong> comparados pra decidir arquitetura de prova social · selos de confiança redefinidos como nativos, não configuráveis.</div>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="project-meta">
+        <span class="status-pill discovery">Discovery em andamento</span>
+        <h3 class="project-title">Integração com WooCommerce</h3>
+        <div class="tags">
+          <span class="tag">technical discovery</span>
+          <span class="tag">api integration</span>
+        </div>
+      </div>
+      <div class="project-body">
+        <p><span class="k">Problema</span>Plataforma só integrava com Shopify — WooCommerce ficava fora da sincronização de produto e checkout embutido.</p>
+        <p><span class="k">Processo</span>Comparei o mecanismo de troca de checkout das duas plataformas: injeção de código no tema (Shopify, frágil) vs. ponto de extensão nativo (WooCommerce, robusto).</p>
+        <div class="result"><span class="k">Resultado</span>Recomendação de arquitetura <strong>estruturalmente mais fácil de manter</strong> que a réplica óbvia do modelo Shopify, com esforço já estimado pra priorização.</div>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="project-meta">
+        <span class="status-pill discovery">Discovery em andamento</span>
+        <h3 class="project-title">Integração com Reportana</h3>
+        <div class="tags">
+          <span class="tag">build vs. buy</span>
+          <span class="tag">financial analysis</span>
+        </div>
+      </div>
+      <div class="project-body">
+        <p><span class="k">Problema</span>Sem estratégia de carrinho abandonado; pedido inicial era construir WhatsApp nativo, sem análise de viabilidade.</p>
+        <p><span class="k">Processo</span>Confrontei o custo real da API do WhatsApp Business com o modelo de receita da plataforma (sem assinatura recorrente) — e mapeei os 4 momentos de abandono do funil pros endpoints certos de uma API parceira.</p>
+        <div class="result"><span class="k">Resultado</span><strong>R$0,31–0,38 por mensagem</strong> de WhatsApp Business barrou a construção nativa antes de começar · <strong>4 momentos de abandono</strong> mapeados pra 2 endpoints · risco do Pix expirar em 30min identificado, exigindo 2 gatilhos de automação em vez de 1.</div>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="project-meta">
+        <span class="status-pill shipped">Em produção</span>
+        <h3 class="project-title">Regras de Negócio: Order Bump</h3>
+        <div class="tags">
+          <span class="tag">business rules</span>
+          <span class="tag">competitive analysis</span>
+        </div>
+      </div>
+      <div class="project-body">
+        <p><span class="k">Problema</span>Upsell no checkout sem regra de negócio documentada — comportamento decidido caso a caso.</p>
+        <p><span class="k">Processo</span>Pesquisei como 4 concorrentes resolvem o parcelamento do bump — 2 padrões de mercado opostos (independente vs. herdado).</p>
+        <div class="result"><span class="k">Resultado</span><strong>6 regras de negócio</strong> definidas (limite de itens, soft delete, prioridade, revalidação) — fonte única de verdade da feature em produção hoje.</div>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="project-meta">
+        <span class="status-pill shipped">Em produção</span>
+        <h3 class="project-title">Intercom como Helpdesk</h3>
+        <div class="tags">
+          <span class="tag">vendor evaluation</span>
+          <span class="tag">customer support</span>
+        </div>
+      </div>
+      <div class="project-body">
+        <p><span class="k">Problema</span>Sem ferramenta de atendimento definida; conta de chat existente era compartilhada com outras aplicações.</p>
+        <p><span class="k">Processo</span>Testei na prática e achei uma limitação fora de qualquer documentação: app isolado no mesmo workspace não segrega conversas.</p>
+        <div class="result"><span class="k">Resultado</span>Limitação crítica descoberta <strong>antes da implementação</strong>, não depois — evitou retrabalho de arquitetura pós-lançamento.</div>
+      </div>
+    </article>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    Kelly Figueiredo M. Silva — Product Management · atualizado em julho de 2026
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Automação &amp; Engenharia de Processo — Kelly Figueiredo</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="sitenav">
+  <div class="wrap navwrap">
+    <a href="index.html" class="navlogo">Kelly Figueiredo</a>
+    <div class="navlinks">
+      <a href="index.html">Home</a>
+      <a href="produtos.html">Produtos</a>
+      <a href="automacao.html" class="active">Automação</a>
+      <a href="discovery.html">Discovery</a>
+    </div>
+  </div>
+</nav>
+
+<header class="pagehead">
+  <div class="wrap">
+    <h1>Automação &amp; Engenharia de Processo</h1>
+    <p>Processos manuais e repetitivos reconstruídos como sistemas — com atenção a onde eles podem
+      quebrar silenciosamente, não só a onde funcionam.</p>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="group" style="padding-top: 8px;">
+    <article class="project">
+      <div class="project-meta">
+        <span class="status-pill shipped">Em produção</span>
+        <h3 class="project-title">Changelog de Release Automatizado</h3>
+        <div class="tags">
+          <span class="tag">github actions</span>
+          <span class="tag">graphql</span>
+          <span class="tag">notion api</span>
+        </div>
+      </div>
+      <div class="project-body">
+        <p><span class="k">Problema</span>Cada release exigia revisão manual dos cards entregues e escrita do changelog à mão — repetitivo e sujeito a esquecimento.</p>
+        <p><span class="k">Processo</span>Pipeline completo: GitHub Action dispara ao fechar a milestone, consulta GraphQL (mãe + sub-issues entre repos), agrupa por tipo, publica formatado no Notion.</p>
+        <div class="result"><span class="k">Resultado</span><strong>0 changelogs escritos manualmente</strong> desde a implementação — processo determinístico, virou base pra uma 2ª automação (mover cards em lote pra "Done").</div>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="project-meta">
+        <span class="status-pill shipped">Em produção</span>
+        <h3 class="project-title">Automações do Board (Projects v2)</h3>
+        <div class="tags">
+          <span class="tag">workflow design</span>
+          <span class="tag">systems thinking</span>
+        </div>
+      </div>
+      <div class="project-body">
+        <p><span class="k">Problema</span>Board dependia de passos manuais repetitivos — milestone, status, avisos de PR, arquivamento — cada um sujeito a esquecimento.</p>
+        <p><span class="k">Processo</span>Arquitetei automações que se protegem mutuamente contra estado inconsistente, com prioridade explícita pra nunca "puxar pra trás" um card já avançado.</p>
+        <div class="result"><span class="k">Resultado</span>Caso real de <strong>0 de 50 subtasks</strong> travadas → causa raiz corrigida sistematicamente, não card por card.</div>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="project-meta">
+        <span class="status-pill shipped">Em produção</span>
+        <h3 class="project-title">Auditoria Pós-Renomeação de Repo</h3>
+        <div class="tags">
+          <span class="tag">debugging</span>
+          <span class="tag">root-cause analysis</span>
+        </div>
+      </div>
+      <div class="project-body">
+        <p><span class="k">Problema</span>Repo do board renomeado → várias automações falhando silenciosamente, sem erro visível.</p>
+        <p><span class="k">Processo</span>Revisei cada automação atrás de comparações de texto contra o nome antigo — uma classe de bug que nunca gera erro, só zero resultados.</p>
+        <div class="result"><span class="k">Resultado</span><strong>7 de 9 automações</strong> afetadas encontradas e restauradas — incluindo uma checagem de segurança que nunca mais passava.</div>
+      </div>
+    </article>
+  </section>
+
+  <section class="group">
+    <div class="group-head">
+      <h2 class="group-title">Dashboards &amp; Métricas</h2>
+    </div>
+    <p class="group-sub">
+      Dados que viviam espalhados, sem tendência nem alerta, viraram painéis vivos com leitura
+      de causa e efeito.
+    </p>
+
+    <article class="project">
+      <div class="project-meta">
+        <span class="status-pill shipped">Em produção</span>
+        <h3 class="project-title">Dashboard de Saúde da Plataforma</h3>
+        <div class="tags">
+          <span class="tag">data visualization</span>
+          <span class="tag">github pages</span>
+        </div>
+      </div>
+      <div class="project-body">
+        <p><span class="k">Problema</span>Métricas de cadastro, engajamento e crescimento espalhadas, sem lugar único pra acompanhar evolução.</p>
+        <p><span class="k">Processo</span>Painel visual com formulário próprio de input semanal e backup exportável — única responsável pelo registro, sem duplicidade de fonte.</p>
+        <div class="result"><span class="k">Resultado</span>Iniciativa recente — o ganho já concreto é a <strong>existência do painel e do processo de medição</strong>, onde antes não havia nenhum registro histórico dessas métricas.</div>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="project-meta">
+        <span class="status-pill shipped">Em produção</span>
+        <h3 class="project-title">Métricas de Time (ponta a ponta)</h3>
+        <div class="tags">
+          <span class="tag">data pipeline</span>
+          <span class="tag">apps script</span>
+          <span class="tag">notion api</span>
+        </div>
+      </div>
+      <div class="project-body">
+        <p><span class="k">Problema</span>Métricas de entrega viviam numa planilha manual sem tendência nem alerta — e um bug de escopo deixava um tipo inteiro de entrega invisível nos números.</p>
+        <p><span class="k">Processo</span>Corrigi o bug e reestruturei o pipeline (Apps Script + GraphQL do GitHub), publicando dashboard automático no Notion com comparação mês a mês.</p>
+        <div class="result"><span class="k">Resultado</span>Iniciativa recente — o ganho já concreto é ter <strong>métrica de time e board de acompanhamento implementados</strong> e rodando sem intervenção manual, onde antes não existia nenhum.</div>
+      </div>
+    </article>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    Kelly Figueiredo M. Silva — Product Management · atualizado em julho de 2026
+  </div>
+</footer>
+
+</body>
+</html>
